@@ -30,9 +30,10 @@ def ZipCode(data, zip_code):
     except:
         data_perzip = pd.DataFrame({'cuisine' : [np.nan], 'total' : [np.nan]})
 
-    return alt.Chart(data_perzip).mark_bar(stroke="Black").encode(
+    go= alt.Chart(data_perzip).mark_bar(stroke="Black").encode(
             alt.X("total:Q", axis=alt.Axis(title="Restaurants")),
             alt.Y('cuisine:O', sort=alt.SortField(field="total", op="argmax")),
             alt.ColorValue("LightGrey"),
             ).properties(width=200)
+    return go
 
