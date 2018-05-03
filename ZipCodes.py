@@ -24,9 +24,9 @@ def loadData():
 # In[3]:
 
 
-def ZipCode(data, zip_filter):
+def ZipCode(data, zip_code):
     try:
-        data_perzip = pd.concat([data[['cuisine', 'perZip']], data.perZip.apply(pd.Series)], axis=1)[['cuisine', str(zip_filter)]]        .dropna().rename(index=str, columns={str(zip_filter): "total"}).sort_values(by=['total'], ascending=False)
+        data_perzip = pd.concat([data[['cuisine', 'perZip']], data.perZip.apply(pd.Series)], axis=1)[['cuisine', str(zip_code)]]        .dropna().rename(index=str, columns={str(zip_code): "total"}).sort_values(by=['total'], ascending=False)
     except:
         data_perzip = pd.DataFrame({'cuisine' : [np.nan], 'total' : [np.nan]})
 
